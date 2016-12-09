@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="GBK"?>
+<xs:schema targetNamespace="http://www.w3school.com.cn"
+		   xmlns="http://www.w3school.com.cn"
+		   xmlns:xs="http://www.w3.org/2001/XMLSchema"  elementFormDefault="qualified">
+
+	<xs:element name="convertors">
+        <xs:annotation>
+        	<xs:documentation>convertors root</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:annotation>
+            	<xs:documentation>convertors root</xs:documentation>
+            </xs:annotation>
+            <xs:choice maxOccurs="unbounded">
+            	<xs:element ref="convertor" maxOccurs="unbounded" />
+            </xs:choice>
+        </xs:complexType>
+    </xs:element>
+    
+
+    <xs:element name="convertor">
+        <xs:complexType>
+        	<xs:sequence>
+        		<xs:element ref="tableMapping" maxOccurs="unbounded" />
+        	</xs:sequence>
+        	<xs:attribute  name="gathRange" type="xs:string">
+        		<xs:annotation>
+        			<xs:documentation>gathRange</xs:documentation>
+        		</xs:annotation>
+        	</xs:attribute>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="tableMapping">
+        <xs:complexType>
+        	<xs:attribute name="handlerClass" type="xs:string" use="optional" >
+        		<xs:annotation>
+        			<xs:documentation>如果是springbean则使用spring:开头 否则使用全类名</xs:documentation>
+        		</xs:annotation>
+        	</xs:attribute>
+        	<xs:attribute name="title" type="xs:string" use="optional" >
+        		<xs:annotation>
+        			<xs:documentation>title</xs:documentation>
+        		</xs:annotation>
+        	</xs:attribute>
+			<xs:attribute name="mapping" type="xs:string" use="optional" >
+				<xs:annotation>
+					<xs:documentation>mapping</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
